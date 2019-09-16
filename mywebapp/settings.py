@@ -128,6 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 
 
 MICROSOFT_AUTH_TENANT_ID = '142dea1d-2eaa-4458-8517-61da1f3a457a'
@@ -137,6 +139,12 @@ MICROSOFT_AUTH_CLIENT_SECRET = 'RETkVj*4ko-q0YvQM-2Q6G]4jm*IrLTE'
 
 MICROSOFT_AUTH_LOGIN_TYPE = 'ma'
 
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
